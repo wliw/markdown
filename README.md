@@ -151,3 +151,36 @@ ___
 
 这是反例
 -------
+
+## 八、链接
+markdown的链接有两种编写方式：内联和引用
+
+### 方式一：内联
+用中括号包裹链接的文本[link text]，后面用小括号包裹真实链接和可选的链接title(link "title")，举例说明：  
+
+    This is [a link example](https://github.com/wliw/markdown 'a link example').
+    This is [an another example](https://github.com/wliw/markdown).
+
+This is [a link example](https://github.com/wliw/markdown 'a link example').  
+This is [an another example](https://github.com/wliw/markdown).
+
+也可以根据当前markdown文件的位置，通过相对路径写法获取本地链接。
+
+    This is [a relative link](./index.html).
+
+
+This is [a relative link](./index.html).
+
+### 方式二：引用
+第一行用中括号包裹链接文本[link text]，后面跟着另一个中括号包裹的链接映射文本[map link id]，两个中括号之间可以有空格，每个[map link id]另起一行，编写出对应的链接，举例：  
+
+    This is [a reference link example] [reference link].
+    This is [a reference relative link example] [reference relative link].
+    [reference link]: https://github.com/wliw/markdown
+    [reference relative link]: ./index.html
+
+This is [a reference link example] [reference link].  
+This is [a reference relative link example] [reference relative link].
+[reference link]: https://github.com/wliw/markdown
+[reference relative link]: ./index.html
+
