@@ -180,8 +180,8 @@ This is [a relative link](./index.html).
     [2]: ./index.html "title text"
 
 This is [a reference link example] [1].  
-This is [a reference relative link example] [2].
-[1]: https://github.com/wliw/markdown
+This is [a reference relative link example] [2].  
+[1]: https://github.com/wliw/markdown  
 [2]: ./index.html "title text"
 
     PS：
