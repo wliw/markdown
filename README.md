@@ -70,13 +70,21 @@ _PS：编辑器中有如果有保存即去除末尾空格的设置，在编写ma
 对于引用的文本，在每行的行首加上半角大于号：&gt;  
 _PS：换行注意用上面换行规则_
 
-    &gt; 这是第一行引用文本；
-    &gt; 这是第二行引用文本；
-    &gt; 这是第三行引用文本； 
+    > 这是第一行引用文本；
+    > 这是第二行引用文本；
+    > 这是第三行引用文本；
+    >> 这是二级块引用；
+    >> 这是二级块引用；
+    >>> 这是三级块引用；
+    >>> 这是三级块引用；
 
 > 这是第一行引用文本；这是第一行第二句应用文本；  
 > 这是第二行引用文本；  
 > 这是第三行引用文本；  
+>> 这是二级块引用；  
+>> 这是二级块引用；
+>>> 这是三级块引用；  
+>>> 这是三级块引用；
 
 ## 五、列表
 无序列表：列表每项开头用半角星号（* ）或者半角连字符（-）或者半角加号（+)  
@@ -168,11 +176,10 @@ This is [an another example](https://github.com/wliw/markdown).
 
     This is [a relative link](./index.html).
 
-
 This is [a relative link](./index.html).
 
 ### 方式二：引用
-第一行用中括号包裹链接文本[link text]，后面跟着另一个中括号包裹的链接映射文本[map link id]，两个中括号之间可以有空格，每个[map link id]另起一行，编写出对应的链接，同样链接后面跟着title文本，用于鼠标hover时显示tip文本，举例：  
+第一行用中括号包裹链接文本[link text]，后面跟着另一个中括号包裹的链接映射文本[map link id]，两个中括号之间可以有空格，每个[map link id]另起一行，编写出对应的链接，同样链接后面跟着title文本，用于鼠标hover时显示tip文本，举例： 
 
     This is [a reference link example][reference link].
     This is [a reference relative link example][reference relative link].
@@ -192,3 +199,88 @@ This is [a reference relative link example][reference relative link].
     [id]: link (title text)
     1、这三种表达方式是等价的，不过Markdown.pl 1.0.1 有一个已知的问题就是不能用单引号来包围链接标题；
     2、引用的链接与上面的内容要添加一行分割，做兼容性处理，github或者其他一些地方没有空行无法正常解析为引用链接方式。
+
+链接引用id可以忽略，即写一个空中括号[link text][]，此时[link text]就是链接引用id；另外链接引用id对大小写不敏感；[link text][A]等价于[link text]][a]。
+
+    [ignore map link id][]
+    
+    [ignore map link id]: https://github.com/wliw/markdown
+
+[ignore map link id][]
+
+[ignore map link id]: https://github.com/wliw/markdown
+
+## 九、强调
+用星号（\*）或者下划线（\_）包裹的内容等价于HTML中的em元素，用两个星号（\*\*）或者用两个下划线（\_\_）包裹内容等价于HTML的strong元素。举例：
+
+    *强调内容*
+    _强调内容_
+    **强调内容**
+    __强调内容__
+
+*强调内容*  
+_强调内容_  
+**强调内容**  
+__强调内容__
+
+## 十、代码
+使用反引号包裹代码片段，等价于HTML中code元素包裹的内容
+    
+    这是markdown中的代码示例`var a = 1;`。
+
+这是markdown中的代码示例`var a = 1;`。
+
+## 十一、图片
+与链接有相似的格式，但是比链接多了一个感叹号，也分为内联和引用两个格式，或者直接HTML用img标签。
+    
+    ![alt text](link "title text")
+
+    ![alt text][link id]
+    
+    [link id]: link "title text"
+    
+    <img src="imgSrc" alt="alt text" title="title text" width="width" height="height" />
+
+举例：
+
+    ![头像](https://avatars1.githubusercontent.com/u/24364542?s=460&v=4 "头像")
+
+    ![头像][avatar]
+    
+    [avatar]: https://avatars1.githubusercontent.com/u/24364542?s=460&v=4 "头像"
+    
+    <img src="https://avatars1.githubusercontent.com/u/24364542?s=460&v=4" alt="alt text" title="title text" width="200" height="200" />
+
+![头像](https://avatars1.githubusercontent.com/u/24364542?s=460&v=4 "头像")
+![头像][avatar]
+
+[avatar]: https://avatars1.githubusercontent.com/u/24364542?s=460&v=4 "头像"
+
+<img src="https://avatars1.githubusercontent.com/u/24364542?s=460&v=4" alt="alt text" title="title text" width="200" height="200" />
+
+## 十二、自动链接
+使用尖括号包裹URL或者email地址，markdown会将其自动转换成链接或者邮件链接。举例：
+
+    <https://github.com/wliw/markdown>[space][space]
+    <wliw@github.com>
+
+<https://github.com/wliw/markdown>  
+<wliw@github.com>
+
+## 十三、转义字符
+像星号（\*）、下划线（\_）等大部分ASCII字符在markdown中都有语法标识符含义，如果要把这些字符输出而不是被解析成markdown语法，则字符前添加反斜杠（\\），表示转义字符。举例：
+
+    \*
+    \_
+    \-
+    \\ \` \! \{\} \[\] \(\) \. \# \+
+
+\*  
+\_  
+\-  
+\\ \` \! \{\} \[\] \(\) \. \# \+
+
+###### 参考链接
+[Markdown 中文文档](https://markdown-zh.readthedocs.io/en/latest/)  
+[Markdown 入门参考](http://xianbai.me/learn-md/index.html)
+
