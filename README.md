@@ -174,13 +174,13 @@ This is [a relative link](./index.html).
 ### 方式二：引用
 第一行用中括号包裹链接文本[link text]，后面跟着另一个中括号包裹的链接映射文本[map link id]，两个中括号之间可以有空格，每个[map link id]另起一行，编写出对应的链接，同样链接后面跟着title文本，用于鼠标hover时显示tip文本，举例：  
 
-    This is [a reference link example] [1].
-    This is [a reference relative link example] [2].
+    This is [a reference link example][1].
+    This is [a reference relative link example][2].
     [1]: https://github.com/wliw/markdown
     [2]: ./index.html "title text"
 
-This is [a reference link example] [1].  
-This is [a reference relative link example] [2].  
+This is [a reference link example][1].  
+This is [a reference relative link example][2].  
 [1]: https://github.com/wliw/markdown  
 [2]: ./index.html "title text"
 
